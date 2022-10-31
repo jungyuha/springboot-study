@@ -33,7 +33,7 @@ dependencies {
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-    static-path-pattern : /resources/static/**</code></pre>
+    static-path-pattern : resources/static/**</code></pre>
 
 ### (3) VIEW 디렉토리 추가
 
