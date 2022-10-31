@@ -59,10 +59,40 @@ public class TilesConfig implements WebMvcConfigurer {
 
 layout 디렉토리 내에 layout jsp를 생성한다.
 
-![](<.gitbook/assets/image (4).png>)
+![](<.gitbook/assets/image (5).png>)
+
+#### 3. body에 들어갈 JSP 생성
+
+템플릿 내의 body에 들어갈 JSP를 생성한다.
+
+![](<.gitbook/assets/image (2).png>)
 
 ### (4) tiles.xml 생성
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="/*" template="/WEB-INF/tiles/layout/mainLayout.jsp" >
+      <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+      <put-attribute name="footer" value="/WEB-INF/tiles/layout/attributes/footer.jsp" />
+    </definition>
+```
+
+### (5) 컨트롤러 생성
+
+```java
+@Controller
+public class testController {
+	
+    @RequestMapping("/test")
+    public ModelAndView test(Model model) {
+	List<String> list = new ArrayList<>();
+	model.addAttribute("list", list);     
+        return new ModelAndView("/test1");
+    }
+}
 ```
 

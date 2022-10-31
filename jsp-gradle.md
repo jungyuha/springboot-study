@@ -32,13 +32,12 @@ dependencies {
 </strong>  mvc:
     view:
       prefix: /WEB-INF/views/
-      suffix: .jsp
-    static-path-pattern : resources/static/**</code></pre>
+      suffix: .jsp</code></pre>
 
 ### (3) VIEW 디렉토리 추가
 
 * src/main 밑에 webapp 디렉토리가 default 경로가 된다. 따라서 아래와 같이 디렉토리를 만든다.
-* ![](<.gitbook/assets/image (2).png>)
+* ![](<.gitbook/assets/image (2) (1).png>)
 
 ### (4) static 파일 디렉토리 추가
 
@@ -47,15 +46,6 @@ dependencies {
 application.yml에서  static 경로를 지정해주었으므로 다음과 같이 디렉토리를 만든다.
 
 ![](.gitbook/assets/image.png)
-
-#### application.yml
-
-<pre class="language-properties"><code class="lang-properties"><strong>spring:  
-</strong>  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
-    static-path-pattern : /resources/static/**</code></pre>
 
 #### 2. static 파일 선언하기
 
@@ -82,16 +72,21 @@ JSP에는 다음과 같은 형태로 static 파일 경로를 지정해준다.
 화면에 띄울 데이터가 있는 경우 Model 타입을 선언하여 원하는 데이터를 담는다.
 
 ```java
+ Map<String,Object> mp = new HashMap<String,Object>();
  List<Post> list = new ArrayList<>();
- model.addAttribute("list", list);
+ String userType = "HOS";
+ 
+  mp.put("data1", list);
+  mp.put("userType", userType);
+ model.addAttribute("res", mp);
 ```
 
 #### 4. JSP를 리턴한다.
 
-보여줄 JSP 파일명을 리턴한다.
+modelAndView를 리턴한다.
 
 ```java
-return "test1";
+return new ModelAndView("/test1");
 ```
 
 ### (2) 코드
@@ -99,16 +94,22 @@ return "test1";
 ```java
 @Controller
 public class testController {
-	@RequestMapping("/test")
-    public String test(Model model) {
-		List<String> list = new ArrayList<>();
+    @RequestMapping("/test")
+    public ModelAndView test(Model model) {
+	Map<String,Object> mp = new HashMap<String,Object>();
+	List<String> list = new ArrayList<>();
+	String userType = "HOS";
 		
-        list.add("11");
+        list.add("11"); 
         list.add("22");
         
-        model.addAttribute("list", list);
+        mp.put("data1", list);
+        mp.put("userType", userType);
         
-        return "test1";
+        model.addAttribute("res", mp);
+        System.out.print(mp);
+        
+        return new ModelAndView("/test1");
     }
 }
 ```
