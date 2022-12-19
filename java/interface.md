@@ -123,7 +123,7 @@ public class Sample {
         Pay pay = new Pay();
         Inicis inicis = new Inicis();
         Kcp kcp = new Kcp();
-        pay.procPay(inicis);  // INI_BBB 출력
+        pay.procPay(inicis);  // INI_AAA 출력
         pay.procPay(kcp);  // KCP_AAA 출력
     }
 }
@@ -240,5 +240,59 @@ class Pay {
 
 ```java
 PgCo.payCnt();
+```
+
+## 전체 코드
+
+```java
+interface PgCo {
+   String getPGName(); // 인터페이스의 메소드는 인터페이스에서 직접 구현하지 않는다.
+   
+   default void printPG() {
+    System.out.printf("pg name is %s\n", getPGName());
+   }
+   // public static final int PAY_COUNT = 2;와 동일하다.
+   int PAY_COUNT = 2;  // 인터페이스 상수
+   
+   static int payCnt() {
+       return PAY_COUNT * 30;
+   }
+}
+
+class PayPg {
+    String name;
+
+    void setName(String name) {
+        this.name = name;
+    }
+}
+
+class Kcp extends PayPg implements PgCo { // PgCo 인터페이스 메서드 구현
+    public String getPGName() {
+        return "KCP";
+    }
+}
+
+class Inicis extends PayPg implements PgCo { // PgCo 인터페이스 메서드 구현
+    public String getPGName() {
+            return "INI";
+        }
+}
+
+class Pay {
+    void procPay(PgCo pgCo) { 
+        System.out.println(pgCo.getPGName()+"_AAA");  
+    }
+}
+
+public class Sample {
+    public static void main(String[] args) {
+        Pay pay = new Pay();
+        Inicis inicis = new Inicis();
+        Kcp kcp = new Kcp();
+        pay.procPay(inicis);  // INI_AAA 출력
+        pay.procPay(kcp);  // KCP_AAA 출력
+    }
+}
 ```
 
