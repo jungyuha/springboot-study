@@ -38,7 +38,7 @@ dependencies {
 ### (3) VIEW 디렉토리 추가
 
 * src/main 밑에 webapp 디렉토리가 default 경로가 된다. 따라서 아래와 같이 디렉토리를 만든다.
-* ![](<../.gitbook/assets/image (2) (1).png>)
+* ![](<.gitbook/assets/image (2) (1).png>)
 
 ### (4) static 파일 디렉토리 추가
 
@@ -46,7 +46,7 @@ dependencies {
 
 application.yml에서  static 경로를 지정해주었으므로 다음과 같이 디렉토리를 만든다.
 
-![](../.gitbook/assets/image.png)
+![](.gitbook/assets/image.png)
 
 #### 2. static 파일 선언하기
 
@@ -54,7 +54,7 @@ JSP에는 다음과 같은 형태로 static 파일 경로를 지정해준다.
 
 #### test1.jsp
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## \[2] 컨트롤러 만들기
 

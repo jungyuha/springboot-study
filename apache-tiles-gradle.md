@@ -53,19 +53,19 @@ public class TilesConfig implements WebMvcConfigurer {
 1. WEB-INF 아래의 tiles/layout/attributes 디렉토리를 생성한다.
 2. attributes 디렉토리 내에 기본적인 jsp를 생성한다.
 
-![](<../.gitbook/assets/image (3).png>)
+![](<.gitbook/assets/image (3).png>)
 
 #### 2. layout JSP 생성
 
 layout 디렉토리 내에 layout jsp를 생성한다.
 
-![](<../.gitbook/assets/image (5).png>)
+![](<.gitbook/assets/image (5).png>)
 
 #### 3. body에 들어갈 JSP 생성
 
 템플릿 내의 body에 들어갈 JSP를 생성한다.
 
-![](<../.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/image (2).png>)
 
 ### (4) tiles.xml 생성
 
