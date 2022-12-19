@@ -18,7 +18,9 @@
 ### 1) 인터페이스란?
 
 * 인터페이스 구현은 아래와같이 **implements** 라는 키워드를 사용한다.
-  * class Kcp extends PayPg implements PgCo { // PgCo 인터페이스 구현 ..
+  * ```java
+    class Kcp extends PayPg implements PgCo { // PgCo 인터페이스 구현 ..
+    ```
 * **객체의 다형성**을 구현한다.
   * **객체의 다형성 : 객체가 한 개 이상의 자료형 타입을 갖게되는 특성**
 
@@ -141,7 +143,9 @@ public class Sample {
 1. 이제 어떤 PG사가 추가되더라도 Pay는 **procPay 메서드를 추가할 필요가 없다.**\
 
    * 다만 **PG사가 추가 될 때마다 다음과 같이 PgCo 인터페이스를 구현한 클래스를 작성**하기만 하면 된다.
-     * class KsNet extends PayPg implements PgCo { // PgCo 인터페이스 구현 , 객체의 다형성
+     * ```java
+       class KsNet extends PayPg implements PgCo { // PgCo 인터페이스 구현 , 객체의 다형성
+       ```
 
 #### 3. PgCo 인터페이스의 메서드 선언
 
@@ -177,7 +181,6 @@ class Pay {
         System.out.println(pgCo.getPGName()+"_AAA");  
     }
 }
-     
 ```
 
 ## \[3]인터페이스(Interface)의 핵심

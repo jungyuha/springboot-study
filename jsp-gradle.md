@@ -32,8 +32,7 @@ dependencies {
 </strong>  mvc:
     view:
       prefix: /WEB-INF/views/
-      suffix: .jsp
-</code></pre>
+      suffix: .jsp</code></pre>
 
 ### (3) VIEW 디렉토리 추가
 
